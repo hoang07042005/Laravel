@@ -101,3 +101,28 @@ Route::get('findId', function (){
         echo "<br>";
     }
 });
+//36
+Route::get('insertORM', function (){
+   $p = new post;
+   $p->title = 'insert ORM';
+   $p->body = 'INSERTED done done ORM';
+   $p->is_admin = 1;
+   $p->save();
+});
+//37
+Route::get('updateORM', function (){
+   $p = post::where('id',6)->first();
+   $p->title = 'updated ORM';
+   $p->body = 'updated Ahihii DONE DONE';
+   $p->save();
+});
+
+//38
+Route::get('deleteORM', function (){
+   post::where('id', '>=', 8)
+        ->delete();
+});
+
+Route::get('destroyORM', function (){
+   post::destroy([18,20]);
+});
